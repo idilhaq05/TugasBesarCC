@@ -160,9 +160,9 @@ image: [IP_REGISTRY]:4000/backend
 cd backend
 
 # Set environment variable (sementara untuk sesi ini)
-set DATABASE_URL=postgresql://postgres.fbzxbyeyemvlbzazreie:mjohanbintangp1132@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres
-set SMTP_USER=inalalkalas@gmail.com
-set SMTP_PASSWORD=dwbdiuawdwd
+set DATABASE_URL=your_database_url_here
+set SMTP_USER=your_email@gmail.com
+set SMTP_PASSWORD=your_smtp_password
 set SMTP_HOST=smtp.gmail.com
 set SMTP_PORT=465
 
@@ -173,24 +173,26 @@ go mod tidy
 go run main.go
 ```
 
-**Alternatif:** Buat file `.env` di folder `backend`:
+**Alternatif:** Buat file `.env` di folder `backend` dengan isi:
 ```
-DATABASE_URL=postgresql://postgres.fbzxbyeyemvlbzazreie:mjohanbintangp1132@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres
-SMTP_USER=inalalkalas@gmail.com
-SMTP_PASSWORD=dwbdiuawdwd
+DATABASE_URL=your_database_url_here
+SMTP_USER=your_email@gmail.com
+SMTP_PASSWORD=your_smtp_password
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=465
 ```
 Kemudian jalankan: `go run main.go`
+
+**Catatan:** Ganti placeholder dengan credentials sebenarnya. Jika sudah ada file `.env` di repository, gunakan nilai yang ada di file tersebut.
 
 ##### macOS (Terminal):
 ```bash
 cd backend
 
 # Buat file .env atau export variabel
-export DATABASE_URL="postgresql://postgres.fbzxbyeyemvlbzazreie:mjohanbintangp1132@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres"
-export SMTP_USER="inalalkalas@gmail.com"
-export SMTP_PASSWORD="dwbdiuawdwd"
+export DATABASE_URL="your_database_url_here"
+export SMTP_USER="your_email@gmail.com"
+export SMTP_PASSWORD="your_smtp_password"
 export SMTP_HOST="smtp.gmail.com"
 export SMTP_PORT="465"
 
@@ -200,6 +202,8 @@ go mod tidy
 # Jalankan backend
 go run main.go
 ```
+
+**Catatan:** Ganti placeholder dengan credentials sebenarnya. Jika sudah ada file `.env` di repository, gunakan nilai yang ada di file tersebut.
 
 Backend akan berjalan di: `http://localhost:8081`
 
@@ -415,8 +419,12 @@ brew install k6
 
 **Metode 2: Download Manual**
 ```bash
-# Download binary
+# Cek versi terbaru di: https://github.com/grafana/k6/releases
+# Download binary (contoh untuk versi 0.47.0, Apple Silicon)
 curl -L https://github.com/grafana/k6/releases/download/v0.47.0/k6-v0.47.0-macos-arm64.tar.gz -o k6.tar.gz
+
+# Untuk Intel Mac, gunakan:
+# curl -L https://github.com/grafana/k6/releases/download/v0.47.0/k6-v0.47.0-macos-amd64.tar.gz -o k6.tar.gz
 
 # Extract
 tar -xzf k6.tar.gz
@@ -636,6 +644,9 @@ k6 run stress_test.js
 ## Catatan Penting
 
 1. **Database Connection**: Aplikasi ini menggunakan Supabase PostgreSQL. Pastikan koneksi internet stabil.
+   - Credentials database dan SMTP dapat ditemukan di file `.env` yang ada di repository
+   - Untuk keamanan, credentials tidak ditampilkan di dokumentasi ini
+   - Pastikan file `.env` tidak di-commit ke public repository
 
 2. **SMTP Configuration**: Email verification menggunakan Gmail SMTP. Pastikan credentials valid.
 
