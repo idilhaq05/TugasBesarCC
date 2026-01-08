@@ -1,7 +1,7 @@
 # Tugas Besar 
 
 ## Deskripsi
-SemangatBelajar adalah aplikasi web berbasis Go (backend) dan React+Vite (frontend) yang menggunakan PostgreSQL sebagai database. Aplikasi ini dideploy menggunakan Docker Swarm dengan Nginx sebagai load balancer.
+Ini adalah aplikasi web berbasis Go (backend) dan React+Vite (frontend) yang menggunakan PostgreSQL sebagai database. Aplikasi ini dideploy menggunakan Docker Swarm dengan Nginx sebagai load balancer.
 
 ## Daftar Isi
 - [Prasyarat](#prasyarat)
@@ -340,25 +340,25 @@ docker push [IP_ANDA]:4000/frontend
 
 ##### Windows & macOS:
 ```bash
-# Deploy stack dengan nama "semangatbelajar"
-docker stack deploy -c docker-compose.yml semangatbelajar
+# Deploy stack dengan nama "tugasbesar"
+docker stack deploy -c docker-compose.yml tugasbesar
 
 # Cek status services
-docker stack services semangatbelajar
+docker stack services tugasbesar
 
 # Cek logs service tertentu
-docker service logs semangatbelajar_backend
-docker service logs semangatbelajar_frontend
-docker service logs semangatbelajar_nginx_backend
+docker service logs tugasbesar_backend
+docker service logs tugasbesar_frontend
+docker service logs tugasbesar_nginx_backend
 
 # Scale service (contoh: scale backend ke 4 replicas)
-docker service scale semangatbelajar_backend=4
+docker service scale tugasbesar_backend=4
 
 # Update service
-docker service update semangatbelajar_backend
+docker service update tugasbesar_backend
 
 # Remove stack
-docker stack rm semangatbelajar
+docker stack rm tugasbesar
 ```
 
 #### E. Monitoring dan Management
@@ -368,7 +368,7 @@ docker stack rm semangatbelajar
 docker service ls
 
 # Detail service tertentu
-docker service ps semangatbelajar_backend
+docker service ps tugasbesar_backend
 
 # List nodes di swarm
 docker node ls
@@ -630,7 +630,7 @@ docker-compose up --build
 ### Docker Swarm:
 ```bash
 docker swarm init
-docker stack deploy -c docker-compose.yml semangatbelajar
+docker stack deploy -c docker-compose.yml tugasbesar
 ```
 
 ### Stress Test:
