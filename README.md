@@ -1,4 +1,4 @@
-# SemangatBelajar
+# Tugas Besar 
 
 ## Deskripsi
 SemangatBelajar adalah aplikasi web berbasis Go (backend) dan React+Vite (frontend) yang menggunakan PostgreSQL sebagai database. Aplikasi ini dideploy menggunakan Docker Swarm dengan Nginx sebagai load balancer.
@@ -708,5 +708,3 @@ lsof -i :8080
 Project ini dibuat untuk Tugas Besar Cloud Computing. Untuk kontribusi atau pertanyaan, silakan hubungi tim development.
 
 ---
-
-**Happy Coding! 🚀**
