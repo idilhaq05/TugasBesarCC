@@ -1,0 +1,20 @@
+
+# Hindari folder yang tidak perlu
+.git
+.gitignore
+
+# Hindari file/folder build lama
+bin/
+*.exe
+*.out
+
+# Node_modules atau file temp (jika ada)
+node_modules/
+*.log
+
+# Dockerfile tidak perlu ikut copy (opsional)
+Dockerfile
+
+# Editor atau OS temp files
+*.swp
+*.DS_Store

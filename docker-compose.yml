@@ -1,0 +1,63 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: 172.26.141.46:4000/backend
+    networks:
+      - api-network
+    environment:
+      - DATABASE_URL=postgresql://postgres.fbzxbyeyemvlbzazreie:mjohanbintangp1132@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres
+    deploy:
+      restart_policy:
+        condition: on-failure
+      replicas: 2
+      placement:
+        constraints:
+          - node.role == worker
+        max_replicas_per_node: 1
+
+  nginx_backend:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile_backend
+    image: 172.26.141.46:4000/nginx_backend
+    ports:
+      - "8080:8080" 
+    networks:
+      - api-network
+      - app-network
+    deploy:
+      restart_policy:
+        condition: on-failure
+      replicas: 2
+      placement:
+        constraints:
+          - node.role == worker
+        max_replicas_per_node: 1
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "80:80"
+    image: 172.26.141.46:4000/frontend
+    networks:
+      - app-network
+    deploy:
+      restart_policy:
+        condition: on-failure
+      replicas: 2
+      placement:
+        constraints:
+          - node.role == worker
+        max_replicas_per_node: 1
+
+networks:
+  app-network:  
+    driver: overlay
+  api-network:
+    driver: overlay
+
+  
