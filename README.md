@@ -1,4 +1,4 @@
-# Tugas Besar 
+# ecosteps-infra-swarm
 
 ## Deskripsi
 Ini adalah aplikasi web berbasis Go (backend) dan React+Vite (frontend) yang menggunakan PostgreSQL sebagai database. Aplikasi ini dideploy menggunakan Docker Swarm dengan Nginx sebagai load balancer.
